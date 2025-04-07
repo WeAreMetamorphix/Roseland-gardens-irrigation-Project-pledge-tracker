@@ -26,26 +26,26 @@ const App = () => {
     const progress = Math.min((totalPledged / goal) * 100, 100);
 
     return (
-        <div className="p-4 max-w-xl mx-auto space-y-4">
-            <div className="bg-white shadow-md rounded-lg p-4">
-                <h1 className="text-2xl mb-2">Roseland Garden Pledge Tracker</h1>
-                <div className="h-4 bg-gray-200 rounded-full mb-4">
+        <div className="bg-green-100 min-h-screen p-8 flex flex-col items-center">
+            <div className="bg-white shadow-lg rounded-2xl p-6 max-w-3xl w-full mb-8 border border-green-300">
+                <h1 className="text-3xl text-green-800 mb-4 text-center">🌱 Roseland Garden Pledge Tracker 🌻</h1>
+                <div className="relative w-full h-6 mb-4 bg-gray-200 rounded-full overflow-hidden">
                     <div
-                        className="h-full bg-green-500 rounded-full"
+                        className="absolute top-0 left-0 h-full bg-green-500 transition-all"
                         style={{ width: `${progress}%` }}
                     ></div>
                 </div>
-                <p className="mb-4">${totalPledged.toFixed(2)} pledged of ${goal} goal</p>
+                <p className="text-center mb-4 text-lg">${totalPledged.toFixed(2)} pledged of ${goal} goal</p>
                 <div className="space-y-2 mb-4">
                     <input
-                        className="border p-2 w-full mb-2"
+                        className="border p-2 w-full rounded"
                         type="text"
                         placeholder="Your Name"
                         value={name}
                         onChange={e => setName(e.target.value)}
                     />
                     <input
-                        className="border p-2 w-full mb-2"
+                        className="border p-2 w-full rounded"
                         type="text"
                         placeholder="Pledge Amount (in dollars)"
                         value={amount}
@@ -59,12 +59,14 @@ const App = () => {
                         />
                         <label className="ml-2">Remain Anonymous on the Webpage</label>
                     </div>
-                    <button onClick={handlePledge} className="bg-blue-500 text-white py-2 px-4 rounded">Pledge</button>
+                    <button onClick={handlePledge} className="bg-green-600 text-white py-2 px-4 rounded w-full hover:bg-green-700 transition">Pledge</button>
                 </div>
-                <h2 className="text-xl mb-2">Pledge List</h2>
-                <ul className="space-y-1">
+                <h2 className="text-xl text-green-700 mb-2 text-center">Pledge List</h2>
+                <ul className="space-y-1 max-h-40 overflow-y-auto">
                     {pledges.map((pledge, index) => (
-                        <li key={index} className="border-b pb-1">{pledge.name}: ${pledge.amount.toFixed(2)}</li>
+                        <li key={index} className="border-b pb-1 text-green-800">
+                            {pledge.name}: ${pledge.amount.toFixed(2)}
+                        </li>
                     ))}
                 </ul>
             </div>
