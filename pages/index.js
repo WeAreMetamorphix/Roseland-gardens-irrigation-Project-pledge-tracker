@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/globals.css';
+import 'pages/styles/globals.css';
 
 const App = () => {
     const [pledges, setPledges] = useState([]);
