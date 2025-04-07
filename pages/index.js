@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import 'tailwindcss/tailwind.css';  // This line ensures Tailwind is applied
 
 const App = () => {
     const [pledges, setPledges] = useState([]);
